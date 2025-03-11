@@ -21,7 +21,7 @@ export default defineConfig(async ({ mode }) => {
 
   OUT_DIR = path.normalize(OUT_DIR!);
   if (OUT_DIR !== "dist" && OUT_DIR !== path.join(process.cwd(), "dist")) {
-    await rm("dist", { recursive: true });
+    await rm("dist", { recursive: true, force: true });
     exec(
       process.platform === "win32"
         ? `mklink /J dist ${OUT_DIR}`
